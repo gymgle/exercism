@@ -1,1 +1,1 @@
-# exercism.io
+# exercism.io go exercises
