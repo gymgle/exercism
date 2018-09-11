@@ -1,23 +1,27 @@
 package scrabble
 
+import (
+	"unicode"
+)
+
 // Score compute the scrabble score for the given word
 func Score(word string) int {
 	total := 0
 	for _, letter := range word {
-		switch letter {
-		case 'A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'L', 'l', 'N', 'n', 'R', 'r', 'S', 's', 'T', 't':
+		switch unicode.ToUpper(letter) {
+		case 'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T':
 			total++
-		case 'D', 'd', 'G', 'g':
+		case 'D', 'G':
 			total += 2
-		case 'B', 'b', 'C', 'c', 'M', 'm', 'P', 'p':
+		case 'B', 'C', 'M', 'P':
 			total += 3
-		case 'F', 'f', 'H', 'h', 'V', 'v', 'W', 'w', 'Y', 'y':
+		case 'F', 'H', 'V', 'W', 'Y':
 			total += 4
-		case 'K', 'k':
+		case 'K':
 			total += 5
-		case 'J', 'j', 'X', 'x':
+		case 'J', 'X':
 			total += 8
-		case 'Q', 'q', 'Z', 'z':
+		case 'Q', 'Z':
 			total += 10
 		}
 	}
